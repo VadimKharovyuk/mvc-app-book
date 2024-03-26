@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/styleCSS/HomePage.css">
 </head>
 <body>
-<h1> Hello  Word </h1>
-
+<div class="top-nav">
+    <a class="active" href="/">Home</a>
+    <a href="books">Books</a>
+</div>
+<h1>Hello home page</h1>
+<form method="get" action="/books">
+    <input name="login" placeholder="Enter login" type="text">
+    <input name="email" placeholder="Enter email" type="email">
+    <input type="submit" value="Show books">
+</form>
 </body>
 </html>
