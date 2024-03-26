@@ -6,10 +6,7 @@
     <link rel="stylesheet" href="/styleCSS/Book.page.css">
 </head>
 <body>
-<div class="top-nav">
-    <a class="active" href="/">Home</a>
-    <a href="books">Books</a>
-</div>
+<div th:insert="~{navigation/navigation:: nav}"></div>
 <h1>Welcome to the page <span th:text="${userLogin}"></span></h1>
 </body>
 </html>

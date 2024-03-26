@@ -6,10 +6,7 @@
     <link rel="stylesheet" href="/styleCSS/HomePage.css">
 </head>
 <body>
-<div class="top-nav">
-    <a class="active" href="/">Home</a>
-    <a href="books">Books</a>
-</div>
+<div th:insert="~{navigation/navigation:: nav}"></div>
 <h1>Hello home page</h1>
 <form method="get" action="/books">
     <input name="login" placeholder="Enter login" type="text">
