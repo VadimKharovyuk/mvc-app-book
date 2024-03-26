@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/styleCSS/createBook.css">
+    <link rel="stylesheet" href="/styleCSS/HomePage.css">
 </head>
 <body>
+<div th:insert="~{navigation/navigation:: nav}"></div>
+<h1 class="createBook"> CreateBook</h1>
 <form method="post" action="/books/createBook" th:object="${newBook}">
-    <input type="text"  name="title" placeholder="название книги">
-    <input type="number"  name="year" placeholder="year книги">
-    <input type="submit"  value="Save">
-
+    <input type="text" name="title" placeholder="название книги">
+    <input type="number" name="year" placeholder="year книги">
+    <input type="submit" value="Save">
 </form>
 
 </body>
