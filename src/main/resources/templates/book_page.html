@@ -8,6 +8,24 @@
 <body>
 <div th:insert="~{navigation/navigation:: nav}"></div>
 <h1>Welcome to the page <span th:text="${userLogin}"></span></h1>
+<h2>Book Schedule</h2>
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Year</th>
+    </tr>
+    <th:block th:each="book :${userBook}">
+        <tr>
+            <td  th:text="${book.title}"></td>
+            <td  th:text="${book.year}"></td>
+
+        </tr>
+
+    </th:block>
+
+
+    <!-- Добавьте другие строки по мере необходимости -->
+</table>
 <div th:insert="~{navigation/footer:: footer}"></div>
 </body>
 </html>
