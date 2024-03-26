@@ -6,9 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +19,9 @@ public class BookController {
     public String getBookPage(@RequestParam (required = false ,name = "login") String login ,
                               @RequestParam (required = false ) String email ,
                               Model model){
+
+
+
         model.addAttribute("userLogin" ,login);
 
         List<Book>  books=bookService.getAllBooksByLogin(login);
@@ -29,5 +30,16 @@ public class BookController {
 
         return "book_page";
 
+    }
+    @GetMapping("/create")
+    public String create(Model model){
+        model.addAttribute("newBook",new Book());
+        return "createBook";
+    }
+
+    @PostMapping("/createBook")
+    public String saveBook(@ModelAttribute Book book){
+        bookService.save(book);
+        return "redirect:/books";
     }
 }

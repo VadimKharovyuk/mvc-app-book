@@ -25,4 +25,8 @@ public class BookService {
                 .filter(book -> book.getYear()>1900)
                 .toList();
     }
+
+    public void save(Book book) {
+        books.add(book);
+    }
 }
