@@ -2,6 +2,8 @@ package com.example.mvcapp.controller;
 
 import com.example.mvcapp.model.Book;
 import com.example.mvcapp.service.BookService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -18,11 +20,14 @@ public class BookController {
     @GetMapping
     public String getBookPage(@RequestParam (required = false ,name = "login") String login ,
                               @RequestParam (required = false ) String email ,
-                              Model model){
+                              Model model, HttpServletRequest request){
+        HttpSession session =request.getSession();
+        if (login!=null && !login.isEmpty()){
+            session.setAttribute("userLogin",login);
+        }
+        String userLogin = (String) session.getAttribute("userLogin");
 
-
-
-        model.addAttribute("userLogin" ,login);
+        model.addAttribute("userLogin" ,userLogin);
 
         List<Book>  books=bookService.getAllBooksByLogin(login);
         model.addAttribute("userBook",books);

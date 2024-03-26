@@ -22,7 +22,7 @@ public class BookService {
             return books;
         }
         return books.stream()
-                .filter(book -> book.getYear()>1900)
+                .filter(book -> book.getYear()>1)
                 .toList();
     }
 

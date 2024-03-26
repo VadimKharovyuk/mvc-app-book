@@ -5,9 +5,15 @@
     <title>Title</title>
     <link rel="stylesheet" href="/styleCSS/HomePage.css">
 </head>
+<style>
+    .welcome{
+        text-align: center;
+        color: coral;
+    }
+</style>
 <body>
 <div th:insert="~{navigation/navigation:: nav}"></div>
-<h1>Hello home page</h1>
+<h1 class="welcome">Hello home page</h1>
 <form method="get" action="/books">
     <input name="login" placeholder="Enter login" type="text">
     <input name="email" placeholder="Enter email" type="email">
